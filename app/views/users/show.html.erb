@@ -1,0 +1,49 @@
+<div class="contents row">
+
+
+
+ <% if @user.avatar.attached? %>
+   <%= image_tag @user.avatar.variant(resize: '1000x1000')%> 
+     <% end %> 
+
+
+<% if user_signed_in? && current_user.id == @user.id %>
+<%= link_to 'ユーザー情報を編集する', edit_user_registration_path %>
+<%= link_to 'youtubeを投稿する', new_post_path %>
+<% end %> 
+
+<% if @user.id == current_user.id %>
+
+<% else %>
+  <% if @isRoom == true %>
+    <p><a href="/rooms/<%= @roomId %>">チャットへ</a>
+  <% else %>
+    <%= form_for @room do |f| %>
+      <%= fields_for @entry do |e| %>
+        <%= e.hidden_field :user_id, :value=> @user.id %>
+      <% end %>
+      <%= f.submit "チャットを始める" %>
+    <% end %>
+  <% end %>
+<% end %>
+
+
+<%= @user.profile %> 
+
+<% @posts.each do |post| %>
+<p>
+  <strong>Body:</strong>
+  <%= post.body %>
+</p>
+
+<p>
+  <strong>Youtube url:</strong>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/<%= post.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+   <% end %> 
+
+  <p><%= @nickname %>さんの投稿一覧</p>
+  <% @tweets.each do |tweet| %>
+<%= render partial: "tweets/tweet", locals: { tweet: tweet } %>
+  <% end %>
+</div>
