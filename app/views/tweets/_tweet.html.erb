@@ -17,10 +17,14 @@
           <% end %>
         </ul>
       </div>
-      <p><%= tweet.title %></p>
+      <p><%= tweet.title %>
       <span class="name">
         <%= tweet.text %>
       </span>
+      </p>
+      <%# <span class="name"> %>
+        <%# <%= tweet.text %> 
+      <%# </span> %>
             <span class="name">
         <a href="/users/<%= tweet.user.id %>">
           <span>投稿者</span><%= tweet.user.nickname %>

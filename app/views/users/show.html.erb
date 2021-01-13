@@ -8,8 +8,15 @@
 
 
 <% if user_signed_in? && current_user.id == @user.id %>
+<div>
 <%= link_to 'ユーザー情報を編集する', edit_user_registration_path %>
+</div>
+<div>
 <%= link_to 'youtubeを投稿する', new_post_path %>
+</div>
+<div>
+<%= link_to 'DM一覧', rooms_path %>
+</div>
 <% end %> 
 
 <% if @user.id == current_user.id %>
@@ -27,8 +34,13 @@
   <% end %>
 <% end %>
 
+<div>
+<%= @user.nickname %> 
+</div>
 
+<div>
 <%= @user.profile %> 
+</div>
 
 <% @posts.each do |post| %>
 <p>
