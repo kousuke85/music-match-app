@@ -1,9 +1,7 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
 
-  def index
-    @rooms = Room.includes(:user).order("created_at DESC")
-  end
+
 
   def create
     @room = Room.create
