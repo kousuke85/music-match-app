@@ -11,7 +11,7 @@ music-match-app
 ユーザー詳細ページにYouTubeの埋め込み投稿も出来
 個人間のやり取りはDMにて出来ます。
 
-本番環境　テストアカウント
+本番環境 テストアカウント
 URL	https://music-match-app123.herokuapp.com/
 テスト用アカウント	ニックネーム:たかし アドレス:ppp@ppp パスワード:111qqq
 
